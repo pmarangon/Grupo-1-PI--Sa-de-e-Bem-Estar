@@ -24,7 +24,7 @@ Homestead.json
 # Custom ignores
 /vendor/*
 !/vendor/.gitkeep
-/database/*
-!/database/.gitkeep
+/db/*
+!/db/.gitkeep
 .vscode/
 .devcontainer/
