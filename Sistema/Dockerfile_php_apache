@@ -3,8 +3,12 @@ FROM php:8.0.11-apache
 WORKDIR /var/www
 
 RUN apt-get update \
-    && docker-php-ext-install pdo_mysql
+    && apt-get install -y libzip-dev \
+    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install zip
 
 EXPOSE 80
+
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 RUN a2enmod rewrite
