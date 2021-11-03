@@ -12,10 +12,12 @@ services:
       - ./:/var/www/html/
     tty: true
     depends_on:
-      - mariadb
+      - mysql
+    env_file:
+      - .env
 
-  mariadb:
-    image: mariadb:10.4.21
+  mysql:
+    image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: unless-stopped
     ports:
