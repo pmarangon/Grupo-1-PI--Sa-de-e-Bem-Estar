@@ -23,5 +23,5 @@ services:
     volumes:
       - ./db/:/var/lib/mysql/
     tty: true
-    environment:
-      MYSQL_ROOT_PASSWORD: example
+    env_file:
+      - .env
