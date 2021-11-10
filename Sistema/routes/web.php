@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\GruposController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +27,10 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->prefix('home')->group(function() {
     Route::view('/', 'home')->name('home');
+});
+
+Route::middleware(['auth'])->prefix('grupos')->group(function() {
+    Route::view('/cadastrar', 'grupos.cadastrar')->name('grupos-cadastrar');
+
+    Route::post('/criar', [GruposController::class, 'criar'])->name('grupos-criar');
 });

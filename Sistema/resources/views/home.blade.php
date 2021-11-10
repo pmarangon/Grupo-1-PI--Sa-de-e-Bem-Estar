@@ -3,7 +3,7 @@
 @section('botoes')
 @if (\Auth::user()->administrador())
 <li class="nav-item m-1">
-  <a class="btn btn-primary" href="{!! route('register') !!}">
+  <a class="btn btn-primary" href="{!! route('grupos-cadastrar') !!}">
     Cadastrar grupos
   </a>
 </li>
