@@ -16,5 +16,13 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
+    if (\Auth::check()) {
+        return redirect()->route('home');
+    }
+
     return view('tela_inicial');
+});
+
+Route::middleware(['auth'])->prefix('home')->group(function() {
+    Route::view('/', 'home')->name('home');
 });
