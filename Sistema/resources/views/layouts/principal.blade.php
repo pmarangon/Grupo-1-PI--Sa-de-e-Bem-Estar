@@ -33,6 +33,18 @@
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav ms-auto">
           @yield('botoes')
+
+          @if(\Auth::check())
+          <li class="nav-item m-1">
+            <form method="POST" action="{!! route('logout') !!}">
+              @csrf
+
+              <button class="btn btn-secondary" type="submit">
+                Sair
+              </button>
+            </form>
+          </li>
+          @endif
         </ul>
       </div>
     </div>
