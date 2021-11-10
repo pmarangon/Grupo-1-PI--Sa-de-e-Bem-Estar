@@ -16,7 +16,7 @@
   @stack('estilos')
 
   <title>
-    Sportap
+    SportZap
   </title>
 </head>
 <body>

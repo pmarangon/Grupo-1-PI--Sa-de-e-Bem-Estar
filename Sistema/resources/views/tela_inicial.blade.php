@@ -13,16 +13,13 @@
 @endpush
 
 @section('botoes')
-{{-- A FAZER
-  Implementar links e rotas corretas após criar a parte de autenticação
---}}
 <li class="nav-item m-1">
-  <a class="btn btn-primary" href="#">
+  <a class="btn btn-primary" href="{!! route('register') !!}">
     Cadastre-se
   </a>
 </li>
 <li class="nav-item m-1">
-  <a class="btn btn-secondary" href="#">
+  <a class="btn btn-secondary" href="{!! route('login') !!}">
     Login
   </a>
 </li>
