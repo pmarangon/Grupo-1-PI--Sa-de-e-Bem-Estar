@@ -16,4 +16,11 @@ class Grupo extends Model
         'link',
         'criado_por',
     ];
+
+    public static function obtemGruposParaUsuario(User $usuario)
+    {
+        if ($usuario->administrador()) {
+            return self::all();
+        }
+    }
 }

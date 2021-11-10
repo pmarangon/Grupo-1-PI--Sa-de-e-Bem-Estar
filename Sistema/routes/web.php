@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GruposController;
+use App\Http\Controllers\HomeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->prefix('home')->group(function() {
-    Route::view('/', 'home')->name('home');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 });
 
 Route::middleware(['auth'])->prefix('grupos')->group(function() {

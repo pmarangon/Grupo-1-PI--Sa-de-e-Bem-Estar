@@ -11,7 +11,13 @@
 @endsection
 
 @section('conteudo')
-<div>
-
+<div class="my-5">
+  <div class="row">
+    @foreach($grupos as $grupo)
+    @include('grupos.componentes.card', [
+      'grupo' => $grupo,
+    ])
+    @endforeach
+  </div>
 </div>
 @endsection
