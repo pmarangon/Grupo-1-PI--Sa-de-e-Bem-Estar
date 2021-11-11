@@ -22,5 +22,11 @@ class Grupo extends Model
         if ($usuario->administrador()) {
             return self::all();
         }
+
+        $questionario = $usuario->questionario()->first();
+
+        return self::where('cidade', 'like', '%' . $questionario->cidade . '%')
+            ->orWhere('esporte', 'like', '%' . $questionario->esporte . '%')
+            ->get();
     }
 }

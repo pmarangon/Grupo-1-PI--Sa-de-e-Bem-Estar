@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->tipo === self::USUARIO_ADMINISTRADOR;
     }
+
+    public function questionario()
+    {
+        return $this->hasOne(Questionario::class, 'usuario_id');
+    }
 }
