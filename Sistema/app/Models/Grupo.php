@@ -25,8 +25,10 @@ class Grupo extends Model
 
         $questionario = $usuario->questionario()->first();
 
-        return self::where('cidade', 'like', '%' . $questionario->cidade . '%')
+        $grupos = self::where('cidade', 'like', '%' . $questionario->cidade . '%')
             ->orWhere('esporte', 'like', '%' . $questionario->esporte . '%')
             ->get();
+
+        return $grupos->isEmpty() ? self::all() : $grupos;
     }
 }
