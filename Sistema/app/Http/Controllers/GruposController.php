@@ -17,4 +17,9 @@ class GruposController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function apagar(GrupoModel $grupo)
+    {
+        $grupo->delete();
+    }
 }
