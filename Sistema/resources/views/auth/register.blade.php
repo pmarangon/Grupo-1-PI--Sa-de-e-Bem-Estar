@@ -19,7 +19,7 @@
 @endsection
 
 @section('conteudo')
-<div>
+<div class="col-12 col-md-6 mx-auto">
     <form class="my-5 form-control" method="POST" action="{!! route('register') !!}">
         @csrf
 
@@ -100,7 +100,7 @@
             </div>
         </section>
 
-        <button class="btn btn-primary" type="submit">
+        <button class="btn btn-primary d-block mx-auto" type="submit">
             Cadastrar
         </button>
     </form>
