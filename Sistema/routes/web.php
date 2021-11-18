@@ -33,6 +33,8 @@ Route::middleware(['auth'])->prefix('home')->group(function() {
 Route::middleware(['auth'])->prefix('grupos')->group(function() {
     Route::view('/cadastrar', 'grupos.cadastrar')->name('grupos-cadastrar');
 
+    Route::get('/entrar/{grupo}', [GruposController::class, 'entrar'])->name('grupos-entrar');
+
     Route::post('/criar', [GruposController::class, 'criar'])->name('grupos-criar');
 
     Route::delete('/apagar/{grupo}', [GruposController::class, 'apagar'])->name('grupos-apagar');

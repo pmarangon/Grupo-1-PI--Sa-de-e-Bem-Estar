@@ -28,7 +28,7 @@
             </p>
             @endif
 
-            <button href="{!! $grupo->link !!}" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" onClick="entrarGrupo('{!! $grupo->id !!}')">
                 Entrar
             </button>
       </div>
@@ -38,6 +38,22 @@
 @once
     @push('scripts')
     <script type="text/javascript">
+        function entrarGrupo(grupoId) {
+            const url = `{!! route('grupos-entrar', '') !!}/${grupoId}`
+
+            axios.get(url)
+                .catch(erro => {
+                    alert('Não foi possivel entrar no grupo. Por favor entre em contato com a equipe técnica.')
+
+                    console.error(erro);
+                })
+                .then(resposta => {
+                    const linkGrupo = resposta.data
+
+                    window.location = linkGrupo;
+                });
+        }
+
         function apagarGrupo(grupoId) {
             const url = `{!! route('grupos-apagar', '') !!}/${grupoId}`
 

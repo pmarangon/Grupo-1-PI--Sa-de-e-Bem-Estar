@@ -22,4 +22,9 @@ class GruposController extends Controller
     {
         $grupo->delete();
     }
+
+    public function entrar(GrupoModel $grupo)
+    {
+        return $grupo->link;
+    }
 }
