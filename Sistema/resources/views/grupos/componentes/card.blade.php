@@ -1,5 +1,13 @@
 @push('estilos')
 <style type="text/css">
+    a {
+        text-decoration: none;
+    }
+
+    .fas.fa-pencil-alt:hover {
+        color: #0d6efd !important;
+    }
+
     .fas.fa-trash:hover {
         color: #dc3545 !important;
     }
@@ -21,9 +29,14 @@
                 @endif
 
                 @if(\Auth::user()->administrador())
-                <a href="#" class="text-secondary float-end" onClick="apagarGrupo('{!! $grupo->id !!}')">
-                    <i class="fas fa-trash"></i>
-                </a>
+                <span class="float-end">
+                    <a href="{!! route('grupos-editar', $grupo->id) !!}" class="text-secondary mx-1">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a href="#" class="text-secondary mx-1" onClick="apagarGrupo('{!! $grupo->id !!}')">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </span>
                 @endif
             </h5>
             <h6 class="card-subtitle mb-2 text-muted">

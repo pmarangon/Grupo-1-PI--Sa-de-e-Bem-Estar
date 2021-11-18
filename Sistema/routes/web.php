@@ -26,8 +26,9 @@ Route::middleware(['auth'])->prefix('grupos')->group(function() {
 
     Route::get('/entrar/{grupo}', [GruposController::class, 'entrar'])->name('grupos-entrar');
     Route::get('/listar', [GruposController::class, 'index'])->name('grupos-listar');
+    Route::get('/editar/{grupo}', [GruposController::class, 'editar'])->name('grupos-editar');
 
-    Route::post('/criar', [GruposController::class, 'criar'])->name('grupos-criar');
+    Route::post('/salvar', [GruposController::class, 'salvar'])->name('grupos-salvar');
 
     Route::delete('/apagar/{grupo}', [GruposController::class, 'apagar'])->name('grupos-apagar');
 });

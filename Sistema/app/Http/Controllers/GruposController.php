@@ -16,15 +16,30 @@ class GruposController extends Controller
         return view('grupos.listar', ['grupos' => $grupos]);
     }
 
-    public function criar(Request $request): string
+    public function salvar(Request $request): string
     {
-        $dados = $request->all();
+        if ($request->filled('id')) {
+            $this->atualizar($request->input('id'), $request->except('id'));
+        } else {
+            $this->criar($request->all());
+        }
 
+        return redirect()->route('grupos-listar');
+    }
+
+    private function atualizar(int $id, array $dados): void
+    {
+        $grupo = GrupoModel::findOrFail($id);
+
+        $grupo->fill($dados);
+        $grupo->save();
+    }
+
+    public function criar(array $dados): void
+    {
         $dados['criado_por'] = \Auth::user()->id;
 
         GrupoModel::create($dados);
-
-        return redirect()->route('grupos-listar');
     }
 
     public function apagar(GrupoModel $grupo): void
@@ -42,5 +57,10 @@ class GruposController extends Controller
         }
 
         return response()->json(['mensagem' => 'Esse grupo já está cheio!'], 500);
+    }
+
+    public function editar(GrupoModel $grupo): View
+    {
+        return view('grupos.cadastrar', ['grupo' => $grupo]);
     }
 }
