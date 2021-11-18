@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\GruposController;
-use App\Http\Controllers\HomeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -18,22 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
 
-Route::get('/', function () {
-    if (\Auth::check()) {
-        return redirect()->route('home');
-    }
-
-    return view('tela_inicial');
-});
-
-Route::middleware(['auth'])->prefix('home')->group(function() {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function() {
+    return \Auth::check() ? redirect()->route('grupos-listar') : view('tela_inicial');
 });
 
 Route::middleware(['auth'])->prefix('grupos')->group(function() {
     Route::view('/cadastrar', 'grupos.cadastrar')->name('grupos-cadastrar');
 
     Route::get('/entrar/{grupo}', [GruposController::class, 'entrar'])->name('grupos-entrar');
+    Route::get('/listar', [GruposController::class, 'index'])->name('grupos-listar');
 
     Route::post('/criar', [GruposController::class, 'criar'])->name('grupos-criar');
 

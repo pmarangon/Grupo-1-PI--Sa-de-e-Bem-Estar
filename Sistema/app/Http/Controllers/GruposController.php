@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\View\View;
 use App\Models\Grupo as GrupoModel;
 
 class GruposController extends Controller
 {
+    public function index(): View
+    {
+        $grupos = GrupoModel::obtemGruposParaUsuario(\Auth::user());
+
+        return view('grupos.listar', ['grupos' => $grupos]);
+    }
+
     public function criar(Request $request): string
     {
         $dados = $request->all();
@@ -16,7 +24,7 @@ class GruposController extends Controller
 
         GrupoModel::create($dados);
 
-        return redirect()->route('home');
+        return redirect()->route('grupos-listar');
     }
 
     public function apagar(GrupoModel $grupo): void
