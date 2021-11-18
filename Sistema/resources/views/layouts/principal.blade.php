@@ -24,7 +24,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
       <div class="mx-1">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img src="{{ asset('public/imagens/mockup_logo.jpeg') }}" alt="" width="120" height="60" class="d-inline-block align-text-top">
         </a>
       </div>
