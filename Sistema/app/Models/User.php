@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -50,7 +51,7 @@ class User extends Authenticatable
         return $this->tipo === self::USUARIO_ADMINISTRADOR;
     }
 
-    public function questionario()
+    public function questionario(): Relations
     {
         return $this->hasOne(Questionario::class, 'usuario_id');
     }

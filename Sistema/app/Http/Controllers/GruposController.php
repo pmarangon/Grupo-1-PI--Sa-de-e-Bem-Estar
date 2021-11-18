@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \Illuminate\Http\JsonResponse;
+use Illuminate\Http\JsonResponse;
 use App\Models\Grupo as GrupoModel;
 
 class GruposController extends Controller
 {
-    public function criar(Request $request)
+    public function criar(Request $request): string
     {
         $dados = $request->all();
 
@@ -19,7 +19,7 @@ class GruposController extends Controller
         return redirect()->route('home');
     }
 
-    public function apagar(GrupoModel $grupo)
+    public function apagar(GrupoModel $grupo): void
     {
         $grupo->delete();
     }

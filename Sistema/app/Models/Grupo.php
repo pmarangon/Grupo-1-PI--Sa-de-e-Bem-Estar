@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class Grupo extends Model
 {
@@ -19,7 +20,7 @@ class Grupo extends Model
         'membros_maximo',
     ];
 
-    public static function obtemGruposParaUsuario(User $usuario)
+    public static function obtemGruposParaUsuario(User $usuario): Collection
     {
         if ($usuario->administrador()) {
             return self::all();
