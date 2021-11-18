@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::get('/', function() {
-    return \Auth::check() ? redirect()->route('grupos-listar') : view('tela_inicial');
+    return \Auth::check() ? redirect()->route('grupos-listar') : view('inicial.listar');
 });
 
 Route::middleware(['auth'])->prefix('grupos')->group(function() {
