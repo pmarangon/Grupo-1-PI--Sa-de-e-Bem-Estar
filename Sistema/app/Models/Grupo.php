@@ -15,6 +15,8 @@ class Grupo extends Model
         'descricao',
         'link',
         'criado_por',
+        'membros_atual',
+        'membros_maximo',
     ];
 
     public static function obtemGruposParaUsuario(User $usuario)
@@ -30,5 +32,10 @@ class Grupo extends Model
             ->get();
 
         return $grupos->isEmpty() ? self::all() : $grupos;
+    }
+
+    public function cheio(): bool
+    {
+        return $this->membros_atual >= $this->membros_maximo;
     }
 }

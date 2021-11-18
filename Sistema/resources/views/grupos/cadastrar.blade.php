@@ -27,6 +27,13 @@
         </div>
 
         <div class="form-group my-3">
+            <label class="form-label" for="membros_maximo">
+                Número máximo de membros no grupo
+            </label>
+            <input class="input-control d-block w-100" type="number" value="255" id="membros_maximo" name="membros_maximo"    required>
+        </div>
+
+        <div class="form-group my-3">
             <label class="form-label" for="esporte">
                 Esportes do grupo <span class="text-muted">(separar com virgulas caso houver mais de um)</span>
             </label>

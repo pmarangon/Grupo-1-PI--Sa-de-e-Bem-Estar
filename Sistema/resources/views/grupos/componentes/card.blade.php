@@ -10,7 +10,15 @@
     <div class="card w-100">
         <div class="card-body">
             <h5 class="card-title">
-                {!! $grupo->nome !!}
+                @if($grupo->cheio())
+                <span class="text-danger">
+                    {!! $grupo->nome !!} - CHEIO
+                </span>
+                @else
+                <span>
+                    {!! $grupo->nome !!}
+                </span>
+                @endif
 
                 @if(\Auth::user()->administrador())
                 <a href="#" class="text-secondary float-end" onClick="apagarGrupo('{!! $grupo->id !!}')">
@@ -28,9 +36,11 @@
             </p>
             @endif
 
-            <button type="button" class="btn btn-primary" onClick="entrarGrupo('{!! $grupo->id !!}')">
+            @if(! $grupo->cheio())
+            <button type="button" class="btn btn-primary col-12" onClick="entrarGrupo('{!! $grupo->id !!}')">
                 Entrar
             </button>
+            @endif
       </div>
     </div>
 </div>
@@ -42,15 +52,16 @@
             const url = `{!! route('grupos-entrar', '') !!}/${grupoId}`
 
             axios.get(url)
-                .catch(erro => {
-                    alert('Não foi possivel entrar no grupo. Por favor entre em contato com a equipe técnica.')
-
-                    console.error(erro);
-                })
                 .then(resposta => {
                     const linkGrupo = resposta.data
 
                     window.location = linkGrupo;
+                })
+                .catch(erro => {
+                    const dadosErro = erro.response.data
+                    const mensagemErro = dadosErro.mensagem
+
+                    alert(mensagemErro)
                 });
         }
 
@@ -58,17 +69,17 @@
             const url = `{!! route('grupos-apagar', '') !!}/${grupoId}`
 
             axios.delete(url)
-                .catch(erro => {
-                    alert('Não foi possível apagar o grupo!')
-
-                    console.error(erro);
-                })
                 .then(_ => {
                     alert('Grupo apagado com sucesso!')
 
                     const card = document.getElementById(`card-grupo-${grupoId}`)
 
                     card.remove();
+                })
+                .catch(erro => {
+                    alert('Não foi possível apagar o grupo!')
+
+                    console.error(erro);
                 });
         }
     </script>

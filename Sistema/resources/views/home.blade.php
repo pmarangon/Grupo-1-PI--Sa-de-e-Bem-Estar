@@ -12,7 +12,7 @@
 
 @section('conteudo')
 <div class="my-5">
-  <div class="row">
+  <div class="row g-3">
     @foreach($grupos as $grupo)
     @include('grupos.componentes.card', [
       'grupo' => $grupo,

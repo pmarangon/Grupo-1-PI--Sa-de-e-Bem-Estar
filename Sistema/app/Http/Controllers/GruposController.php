@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \Illuminate\Http\JsonResponse;
 use App\Models\Grupo as GrupoModel;
 
 class GruposController extends Controller
@@ -23,8 +24,15 @@ class GruposController extends Controller
         $grupo->delete();
     }
 
-    public function entrar(GrupoModel $grupo)
+    public function entrar(GrupoModel $grupo): string|JsonResponse
     {
-        return $grupo->link;
+        if (! $grupo->cheio()) {
+            $grupo->membros_atual += 1;
+            $grupo->save();
+
+            return $grupo->link;
+        }
+
+        return response()->json(['mensagem' => 'Esse grupo já está cheio!'], 500);
     }
 }
