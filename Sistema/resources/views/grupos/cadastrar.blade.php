@@ -15,7 +15,7 @@
 @endsection
 
 @section('conteudo')
-<div class="col-12 col-md-6 mx-auto">
+<div class="col-12 col-md-6 mx-auto cartao">
     <form class="my-5 form-control" method="POST" action="{!! route('grupos-salvar') !!}">
         @csrf
 
@@ -75,7 +75,7 @@
             <textarea class="input-control d- block w-100" id="descricao" name="descricao">{!! isset($grupo) ? $grupo->descricao : '' !!}</textarea>
         </div>
 
-        <button class="btn btn-primary d-block mx-auto" type="submit">
+        <button class="btn btn-primary d-block mx-auto rounded-pill" type="submit">
             Salvar
         </button>
     </form>

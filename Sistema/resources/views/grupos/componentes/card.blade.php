@@ -1,19 +1,3 @@
-@push('estilos')
-<style type="text/css">
-    a {
-        text-decoration: none;
-    }
-
-    .fas.fa-pencil-alt:hover {
-        color: #0d6efd !important;
-    }
-
-    .fas.fa-trash:hover {
-        color: #dc3545 !important;
-    }
-</style>
-@endpush
-
 <div class="col-12 col-sm-6 col-md-4" id="card-grupo-{!! $grupo->id !!}">
     <div class="card w-100">
         <div class="card-body">
@@ -50,7 +34,7 @@
             @endif
 
             @if(! $grupo->cheio())
-            <button type="button" class="btn btn-primary col-12" onClick="entrarGrupo('{!! $grupo->id !!}')">
+            <button type="button" class="btn btn-primary d-block w-75 mx-auto rounded-pill" onClick="entrarGrupo('{!! $grupo->id !!}')">
                 Entrar
             </button>
             @endif

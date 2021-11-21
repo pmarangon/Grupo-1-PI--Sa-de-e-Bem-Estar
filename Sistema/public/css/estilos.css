@@ -1,0 +1,36 @@
+*[class*="-primary"] {
+    background-color: #ff6400 !important;
+    border-color: #ff6400 !important;
+}
+
+.card,
+.form-control {
+    border-radius: 0.85em !important;
+}
+
+input,
+textarea {
+    border: 1px solid #ced4da;
+    border-radius: 0.5em !important;
+    padding: 0.25em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fas.fa-pencil-alt:hover {
+    color: #0d6efd !important;
+}
+
+.fas.fa-trash:hover {
+    color: #dc3545 !important;
+}
+
+.texto-slogan {
+    place-self: center;
+}
+
+.carousel-item img {
+    width: 85%;
+}

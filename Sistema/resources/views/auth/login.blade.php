@@ -25,7 +25,7 @@
             <input class="input-control d-block w-100" type="password" id="password" name="password" required>
         </div>
 
-        <button class="btn btn-primary d-block mx-auto" type="submit">
+        <button class="btn btn-primary d-block mx-auto rounded-pill" type="submit">
             Entrar
         </button>
     </form>

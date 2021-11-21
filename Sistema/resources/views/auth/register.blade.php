@@ -100,7 +100,7 @@
             </div>
         </section>
 
-        <button class="btn btn-primary d-block mx-auto" type="submit">
+        <button class="btn btn-primary d-block mx-auto rounded-pill" type="submit">
             Cadastrar
         </button>
     </form>
