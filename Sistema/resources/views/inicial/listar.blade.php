@@ -16,8 +16,8 @@
 @section('conteudo')
 <div>
     <div class="d-grid">
-        <h1 class="texto-slogan">
-            Lorem ipsum dolor sit amet
+	<h1 class="texto-slogan">
+            SportZap, sua saúde é melhor com lazer
         </h1>
     </div>
 
@@ -42,18 +42,21 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4">
             <div class="pt-4 pt-sm-0 px-4 px-sm-2">
-                <span class="fs-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat lacus at malesuada sodales. Donec bibendum sodales risus, et consequat mi suscipit sed. Mauris sed iaculis nibh. Ut sodales vestibulum sem. In hac habitasse platea dictumst. Nullam blandit maximus enim quis ultrices. Proin enim orci, molestie sed mauris eu, fringilla vulputate ante. Phasellus rhoncus pharetra auctor.
+		<span class="fs-4">
+                    Os esportes coletivos são muito importantes, visto que fomos obrigados a se afastar de tudo e todos, para nossa segurança durante a pandemia de Covid-19, assim já não dá mais para ficar, não é? Junte-se a equipe do SportZap e melhore suas amizades, seus momentos de lazer e sua saúde. SportZap te ajuda a encontrar pessoas próximas de você com horários condizentes ao seu e com o mesmo interesse em esportivo, quer mais? Não tem custo nenhum e você se conectará com todos por uma plataforma que já conhecida, o WhatsApp.
                 </span>
             </div>
         </div>
     </div>
 
     <div class="my-5">
-        <div class="d-grid">
-            <h2 class="texto-slogan">
-                Lorem ipsum dolor sit amet
-            </h2>
+        <div class="d-grid txt-align-center">
+	    <h3 class="texto-slogan">
+		Melhor que isso não tem, junte-se agora mesmo ao SportZap!
+	    </h3>
+            <h4 class="texto-slogan">
+                Sua saúde em conjunto com o lazer!
+            </h4>
         </div>
         <div class="col-12 mt-3">
           <div class="col-12 col-sm-4 mx-auto">
